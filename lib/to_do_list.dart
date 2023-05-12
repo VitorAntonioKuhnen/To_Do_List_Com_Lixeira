@@ -7,20 +7,21 @@ import 'package:processo_dados/lixeira.dart';
 class To_Do_List extends StatefulWidget {
 
   final List<String> tarefasExc;
+  final List<String> tarefaSub;
   String nome;
   String email;
-  To_Do_List({Key? key, required this.nome, required this.email, required this.tarefasExc}) : super(key: key);
+  To_Do_List({Key? key, required this.nome, required this.email, required this.tarefasExc, required this.tarefaSub}) : super(key: key);
 
   @override
   State<To_Do_List> createState() => _To_Do_ListState();
 }
 
 class _To_Do_ListState extends State<To_Do_List> {
-  List<String> tarefasExc = [];
+  // List<String> tarefasExc = [];
 
-  List tarefas = ['Trabalhar', 'Estudar', 'Ir Para Casa'];
+  // List tarefas = ['Trabalhar', 'Estudar', 'Ir Para Casa'];
   // List tarefasExc = [];
-  List tarefaSub = [];
+  // List tarefaSub = [];
   TextEditingController _tarefa = TextEditingController();
   TextEditingController _subtitulo = TextEditingController();
 
@@ -53,7 +54,7 @@ class _To_Do_ListState extends State<To_Do_List> {
             ),
             ListTile(
               onTap: () {
-                Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=> Lixeira(nome: nome, email: email, tarefasExc: tarefasExc))); 
+                Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=> Lixeira(nome: nome, email: email, tarefasExc: tarefasExc, tarefaSub: tarefaSub,))); 
               },
 
 
@@ -73,15 +74,15 @@ class _To_Do_ListState extends State<To_Do_List> {
           //ItemCount é a quantidade de vezes que irá ter a repetição do conexto
           //Index é a posição do item dentro do laço
           child: ListView.builder(
-              itemCount: tarefas.length,
+              itemCount: tarefaSub.length,
               itemBuilder: (context, index) {
                 return ListTile(
-                    title: Text(tarefas[index]),
+                    title: Text(tarefaSub[index]),
                     trailing: IconButton(
                         onPressed: () {
                           setState(() {
-                            tarefasExc.add(tarefas[index]);
-                            tarefas.removeAt(index);
+                            tarefasExc.add(tarefaSub[index]);
+                            tarefaSub.removeAt(index);
                           }
                           );
                           ScaffoldMessenger.of(context).showSnackBar(SnackBar(
@@ -119,7 +120,7 @@ class _To_Do_ListState extends State<To_Do_List> {
                     ElevatedButton(
                         onPressed: () {
                           setState(() {
-                            tarefas.add(_tarefa.text);
+                            tarefaSub.add(_tarefa.text);
                           });
                           ScaffoldMessenger.of(context).showSnackBar(SnackBar(
                             content: Text('Tarefa Adicionada com Sucesso!!'),

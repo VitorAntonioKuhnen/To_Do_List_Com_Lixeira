@@ -8,9 +8,10 @@ import 'package:processo_dados/to_do_list.dart';
 class Lixeira extends StatefulWidget {
 
   final List<String> tarefasExc;
+  final List<String> tarefaSub;
   String nome;
   String email;
-  Lixeira({Key? key, required this.nome, required this.email, required this.tarefasExc}) : super(key: key);
+  Lixeira({Key? key, required this.nome, required this.email, required this.tarefasExc, required this.tarefaSub}) : super(key: key);
 
   @override
   State<Lixeira> createState() => _LixeiraState();
@@ -35,7 +36,7 @@ class _LixeiraState extends State<Lixeira> {
                 // print(_nome.text);  
                 // Navigator.push(context, MaterialPageRoute(builder: (context)=> SecondPage(texto: _nome.text)));
                 // texto = _nome.text;
-                Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=> To_Do_List(nome: nome, email: email, tarefasExc: tarefasExc)));
+                Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=> To_Do_List(nome: nome, email: email, tarefasExc: tarefasExc, tarefaSub: tarefaSub,)));
               },
               // trailing: Icon(Icons.home),
 

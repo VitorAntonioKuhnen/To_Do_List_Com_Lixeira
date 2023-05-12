@@ -18,6 +18,7 @@ TextEditingController _email = TextEditingController();
 var nome;
 var email;
 List<String> tarefasExc = [];
+List<String> tarefaSub = [];
 
 
 
@@ -58,7 +59,7 @@ class _HomePageState extends State<HomePage> {
               // Navigator.push(context, MaterialPageRoute(builder: (context)=> SecondPage(texto: _nome.text)));
               nome = _nome.text;
               email = _email.text;
-              Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=> To_Do_List(nome: nome, email: email, tarefasExc: tarefasExc))); //Destroi a pagina que estáva após fazer o direcionamento
+              Navigator.pushReplacement(context, MaterialPageRoute(builder: (context)=> To_Do_List(nome: nome, email: email, tarefasExc: tarefasExc, tarefaSub: tarefaSub,))); //Destroi a pagina que estáva após fazer o direcionamento
               _nome.clear();
             },
             child: Text('Entrar'),
